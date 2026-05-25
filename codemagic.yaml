@@ -6,7 +6,6 @@ workflows:
       xcode: latest
       cocoapods: default
     scripts:
-      - xcodebuild -list
-      - xcodebuild -scheme IPAGURUApp -configuration Release -destination 'generic/platform=iOS' -archivePath $CM_BUILD_DIR/build.xcarchive clean archive
+      - xcodebuild -scheme IPAGURU-Package -configuration Release -destination 'generic/platform=iOS' -archivePath $CM_BUILD_DIR/build.xcarchive clean archive
     artifacts:
       - $CM_BUILD_DIR/*.ipa
