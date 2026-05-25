@@ -9,7 +9,7 @@ workflows:
         automatic:
           apple_id_username: $APP_STORE_CONNECT_EMAIL
           apple_id_password: $APP_STORE_CONNECT_PASSWORD
-          app_identifier: REPLACE_WITH_YOUR_BUNDLE_ID
+          app_identifier: com.ipagur
     scripts:
       - name: Build IPA
         script: |
@@ -17,4 +17,4 @@ workflows:
           xcodebuild -exportArchive -archivePath $CM_BUILD_DIR/IPAGURU.xcarchive -exportPath $CM_BUILD_DIR -exportOptionsPlist ExportOptions.plist
     artifacts:
       - build/ios/ipa/*.ipa
-      - build/ios/ipa/*.app.dSYM.zip
+      - build/ios/ipa/*.app.d
