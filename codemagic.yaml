@@ -9,6 +9,7 @@ workflows:
         automatic:
           apple_id_username: $APP_STORE_CONNECT_EMAIL
           apple_id_password: $APP_STORE_CONNECT_PASSWORD
+          app_identifier: REPLACE_WITH_YOUR_BUNDLE_ID
     scripts:
       - name: Build IPA
         script: |
