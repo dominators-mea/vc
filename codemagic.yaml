@@ -5,6 +5,11 @@ workflows:
     instance_type: mac_mini_m2
     environment:
       xcode: latest
+      ios_signing:
+        automatic:
+          apple_id_username: $APP_STORE_CONNECT_EMAIL
+          apple_id_password: $APP_STORE_CONNECT_PASSWORD
+          app_identifier: com.ipagur
     scripts:
       - name: Build IPA
         script: |
