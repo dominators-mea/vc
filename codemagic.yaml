@@ -7,10 +7,8 @@ workflows:
       xcode: latest
       cocoapods: default
       ios-signing:
-        development:
+        automatic:
           team_id: REPLACE_WITH_YOUR_TEAM_ID
-          email: $APP_STORE_CONNECT_EMAIL
-          password: $APP_STORE_CONNECT_PASSWORD
     scripts:
       - flutter pub get
       - flutter build ipa --no-codesign
