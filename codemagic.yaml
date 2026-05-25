@@ -10,7 +10,3 @@ workflows:
       - xcodebuild -scheme IPAGURUApp -configuration Release -destination 'generic/platform=iOS' -archivePath $CM_BUILD_DIR/build.xcarchive clean archive
     artifacts:
       - $CM_BUILD_DIR/*.ipa
-    publishing:
-      email:
-        recipients:
-          - $CM_EMAIL
