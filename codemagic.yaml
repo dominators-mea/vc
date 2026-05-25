@@ -1,20 +1,19 @@
 workflows:
   ios-workflow:
-    name: iOS Workflow
-    max_build_duration: 60
-    instance_type: mac_mini_m2
+    name: iOS Dev Build
+    max_build_duration: 120
     environment:
+      flutter: stable
       xcode: latest
-      ios_signing:
-        automatic:
-          apple_id_username: $APP_STORE_CONNECT_EMAIL
-          apple_id_password: $APP_STORE_CONNECT_PASSWORD
-          app_identifier: com.ipagur
+      cocoapods: default
+      ios-signing:
+        development:
+          type: automatic
+          team_id: REPLACE_WITH_YOUR_TEAM_ID
+          email: $APP_STORE_CONNECT_EMAIL
+          password: $APP_STORE_CONNECT_PASSWORD
     scripts:
-      - name: Build IPA
-        script: |
-          xcodebuild -scheme IPAGURUApp -configuration Release -sdk iphoneos -archivePath $CM_BUILD_DIR/IPAGURU.xcarchive archive
-          xcodebuild -exportArchive -archivePath $CM_BUILD_DIR/IPAGURU.xcarchive -exportPath $CM_BUILD_DIR -exportOptionsPlist ExportOptions.plist
+      - flutter pub get
+      - flutter build ipa --no-codesign
     artifacts:
       - build/ios/ipa/*.ipa
-      - build/ios/ipa/*.app.dSYM.zip
